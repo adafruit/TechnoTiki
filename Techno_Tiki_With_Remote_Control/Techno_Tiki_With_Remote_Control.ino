@@ -169,9 +169,9 @@ bool readNEC(uint16_t* result) {
   // Read the first pulse with a large timeout since it's 9ms long, then
   // read subsequent pulses with a shorter 2ms timeout.
   uint32_t durations[33];
-  durations[0] = pulseIn(IR_PIN, HIGH, 10000);
+  durations[0] = pulseIn(IR_PIN, HIGH, 20000);
   for (uint8_t i = 1; i < 33; ++i) {
-    durations[i] = pulseIn(IR_PIN, HIGH, 2000);
+    durations[i] = pulseIn(IR_PIN, HIGH, 5000);
   }
   // Reset any state changed by the interrupt.
   receiverFell = false;
